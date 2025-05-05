@@ -11,16 +11,21 @@
   },
   "dependencies": {
     "@react-navigation/native": "^6.x",
-    "@react-navigation/stack": "^7.3.1",
+    "@react-navigation/native-stack": "^6.x",
     "react": "19.0.0",
     "react-native": "0.79.2",
     "react-native-camera": "^4.2.1",
     "react-native-gesture-handler": "^2.25.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-pager-view": "^6.7.1",
+    "react-native-progress": "^5.0.1",
     "react-native-raw-bottom-sheet": "^3.0.0",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "^5.4.0",
-    "react-native-screens": "^4.10.0"
+    "react-native-screens": "^4.10.0",
+    "react-native-svg": "^15.11.2",
+    "react-native-tab-view": "^4.0.12",
+    "react-native-vector-icons": "^10.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -21,12 +21,12 @@ export default memo(AppText)
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: getFontSize(24),
-    fontFamily: fonts.semiBold
+    fontSize: getFontSize(34),
+    fontFamily: fonts.regular
   },
   subTitle: {
-    fontSize: getFontSize(18),
-    fontFamily: fonts.bold
+    fontSize: getFontSize(22),
+    fontFamily: fonts.regular
   },
   regularFont: {
     fontSize: getFontSize(16),

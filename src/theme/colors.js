@@ -14,6 +14,7 @@ export const colors = {
   paleyYellow: "#EFBE12",
   orange: "#FF9800",
   green: "#3FC28A",
+  softGreen: '#EAF3EF',
   greenBg: "rgba(63, 194, 138, 0.1)",
   yellowBg: "rgba(239, 190, 18, 0.1)",
   white: "#FFFFFF",

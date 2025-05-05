@@ -1,3 +1,4 @@
 export const screenNames = {
-    ADD_CANDIDATE: "add_candidate",
+    ONBOARD_SCREEN: "onboard_screen",
+    TEST_RESULT_SCREEN: "test_result_screen",
 }

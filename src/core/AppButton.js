@@ -1,22 +1,21 @@
 import { TouchableOpacity, StyleSheet, ActivityIndicator, View } from 'react-native'
 import React, { memo } from 'react'
 import { colors, getFontSize, hp } from '@/theme'
-import AppText from './AppText'
-import globalStyles from '@/styles/globalStyles'
 import { fonts } from '@/assets/fonts'
+import AppText from './AppText'
 
 const AppButton = ({ text, textStyle, style, onPress, isLoading, disabled, bgColor, startIcon, secondary = false, endIcon }) => {
     return (
         <>
             {!secondary ? (
-                < TouchableOpacity onPress={onPress} style={[styles.container, { backgroundColor: bgColor ?? colors.primary }, style]} disabled={disabled ?? isLoading} >
+                < TouchableOpacity onPress={onPress} style={[styles.container, { backgroundColor: bgColor ?? colors.black }, style]} disabled={disabled ?? isLoading} >
                     {
                         isLoading ? (
                             <ActivityIndicator
                                 size={'small'}
                                 color={colors.white} />
                         ) : (
-                            <View style={globalStyles.flexRow} >
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }} >
                                 {startIcon && startIcon}
                                 <AppText style={[styles.buttonLabel, { color: colors.white }, textStyle]}>{text}</AppText>
                                 {endIcon && endIcon}
@@ -31,7 +30,7 @@ const AppButton = ({ text, textStyle, style, onPress, isLoading, disabled, bgCol
                                 size={'small'}
                                 color={colors.black} />
                         ) : (
-                            <View style={globalStyles.flexRow} >
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }} >
                                 {startIcon && startIcon}
                                 <AppText style={[styles.buttonLabel, { color: colors.black }, textStyle]}>{text}</AppText>
                                 {endIcon && endIcon}
@@ -48,7 +47,8 @@ const styles = StyleSheet.create({
     container: {
         height: hp(5.8),
         borderRadius: hp(3),
-        ...globalStyles.columnCenter,
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius: hp(1),
     },
     buttonLabel: {

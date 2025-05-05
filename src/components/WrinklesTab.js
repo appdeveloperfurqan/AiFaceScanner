@@ -25,6 +25,7 @@ const WrinklesTab = () => {
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ flexGrow: 1 }}
       />
     </View>
   );
@@ -35,6 +36,7 @@ export default WrinklesTab;
 const styles = StyleSheet.create({
   container: {
     marginTop: hp(1),
+    flex: 1
   },
   itemContainer: {
     padding: hp(2),

@@ -11,8 +11,12 @@ import RecommendationTabs from '@/components/RecommendationTabs';
 import { Images } from '@/assets';
 import WrinklesTab from '@/components/WrinklesTab';
 import BaldnessTab from '@/components/BaldnessTab';
+import AppButton from '@/core/AppButton';
+import { useNavigation } from '@react-navigation/native';
+import { screenNames } from '@/navigation/screenNames';
 
 const OnBoardScreen = () => {
+  const navigation = useNavigation();
   const [actiiveTab, setActiveTab] = useState('wrinkles');
   const testResults = [
     { id: 1, label: 'Problem severity', percentage: '40%' },
@@ -41,63 +45,13 @@ const OnBoardScreen = () => {
 
   return (
     <AppWrapper>
-      <Scrollable containerStyle={styles.container}>
-        <Pressable style={styles.backButton}>
-          <VectorIcons
-            name={iconLibName.Ionicons}
-            iconName="chevron-back"
-            size={hp(3)}
-            color={colors.black}
-          />
-          <AppText variant={Variant.ligntBody}>Skin Report</AppText>
+      <View style={styles.container}>
+        <Pressable onPress={() => navigation.navigate(screenNames.FACE_SCANNER_SCREEN)} style={styles.btnContainer}>
+          <View style={styles.innerContainer}>
+            <AppText color={colors.white} variant={Variant.body}>Scan</AppText>
+          </View>
         </Pressable>
-
-        <AppText style={styles.title} variant={Variant.subTitle}>
-          Skin Test Results
-        </AppText>
-        <AppText style={styles.description} variant={Variant.ligntBody}>
-          This skin test uses AI analysis to reveal any skin issues and suggest possible solutions
-        </AppText>
-
-        <View style={styles.resultRow}>
-          {testResults.map((item) => (
-            <View key={item.id} style={styles.resultBox}>
-              <AppText variant={Variant.ligntBody}>{item.label}</AppText>
-              <AppText variant={Variant.title}>{item.percentage}</AppText>
-            </View>
-          ))}
-        </View>
-
-        <AppText style={styles.title} variant={Variant.subTitle}>
-          Skin statistics
-        </AppText>
-
-        <View style={styles.statisticBox}>
-          {statistics.map((item) => (
-            <View key={item.id} style={styles.statisticItem}>
-              <AppText variant={Variant.ligntBody}>{item.label}</AppText>
-              <View style={styles.progressRow}>
-                <AppText variant={Variant.ligntBody}>{item.value}</AppText>
-                <Progress.Bar
-                  unfilledColor={colors.grayE8}
-                  color={colors.green}
-                  progress={item.progress}
-                  width={wp(28)}
-                  height={hp(0.2)}
-                  borderWidth={0}
-                />
-              </View>
-            </View>
-          ))}
-        </View>
-        <AppText style={styles.title} variant={Variant.subTitle}>
-          Recommendations
-        </AppText>
-        <RecommendationTabs
-          tabs={tabs}
-          onTabChange={setActiveTab}
-        />
-      </Scrollable>
+      </View>
     </AppWrapper>
   );
 };
@@ -107,8 +61,28 @@ export default OnBoardScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: hp(2),
-    minHeight: hp(120),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btnContainer: {
+    backgroundColor: colors.white,
+    padding: hp(1),
+    height: hp(10),
+    width: hp(10),
+    borderRadius: hp(6.5),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: colors.black
+  },
+  innerContainer: {
+    backgroundColor: colors.black,
+    padding: hp(1),
+    height: hp(8),
+    width: hp(8),
+    borderRadius: hp(4.5),
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   backButton: {
     flexDirection: 'row',
